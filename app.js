@@ -11,7 +11,7 @@ var localStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/loginapp');
+mongoose.connect('mongodb://localhost:27017/loginapp');
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
@@ -67,8 +67,8 @@ app.use(flash());
 
 //Global Vars
 app.use(function (req,res,next) {
-  res.locals.success_mgs = req.flash('success_mgs');
-  res.locals.error_mgs = req.flash('error_mgs');
+  res.locals.success_mgs = req.flash('success_msg');
+  res.locals.error_mgs = req.flash('error_msg');
   res.locals.error = req.flash('error');
   res.locals.user = req.user || null;
   next();

@@ -26,25 +26,16 @@
 
      <div class="row">
        <div class="col-lg-12">
-         {{#if success_mgs}}
-         <div class="notice success"><i class="icon-remove-sign icon-large"></i>
-           {{success_mgs}}
-           <div class="alert alert-success">{{success_mgs}}</div>
-         </div>
+         {{#if success_msg}}
+           <div class="alert alert-success">{{success_msg}}</div>
          {{/if}}
 
-         {{#if error_mgs}}
-         <div class="notice error"><i class="icon-remove-sign icon-large"></i>
-           {{error_mgs}}
-            <div class="alert alert-danger">{{error_mgs}}</div>
-         </div>
+         {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
          {{/if}}
 
          {{#if error}}
-         <div class="notice error"><i class="icon-remove-sign icon-large"></i>
-           {{error}}
            <div class="alert alert-danger">{{error}}</div>
-         </div>
          {{/if}}
         {{{body}}}
        </div>
