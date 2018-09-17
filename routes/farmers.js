@@ -9,5 +9,10 @@ var Farmer =require('../models/farmer');
 router.get('/', (req, res)=>{
   res.render('farmer');
 });
+router.post('/add', (req, res)=>{
+  res.render('farmer');
+});
+
+
 
 module.exports = router;

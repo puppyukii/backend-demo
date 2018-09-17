@@ -15,7 +15,16 @@ var UserSchema = mongoose.Schema({
   },
   name:{
     type:String
-  }
+  },
+  address:{
+     type:String
+   },
+   phonenumber:{
+     type:Number
+   },
+   ic:{
+     type:String
+   }
 });
 
 var User = module.exports = mongoose.model('User',UserSchema);
