@@ -8,7 +8,8 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
-var mongo = require('mongodb');
+
+var MongoClient = require('mongodb').MongoClient;
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/loginapp');
@@ -16,8 +17,8 @@ var db = mongoose.connection;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var farmers = require('./routes/farmers');
 
-//Init app
 var app = express();
 
 // view Engine
@@ -67,17 +68,19 @@ app.use(flash());
 
 //Global Vars
 app.use(function (req,res,next) {
-  res.locals.success_mgs = req.flash('success_msg');
-  res.locals.error_mgs = req.flash('error_msg');
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
-  res.locals.user = req.user || null;
   next();
+  res.locals.user = req.user || null;
 });
 
 
 
 app.use('/',routes);
 app.use('/users',users);
+app.use('/farmers',farmers);
+
 
 // Set port
 app.set('port', (process.env.PORT || 3000));

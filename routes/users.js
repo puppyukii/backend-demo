@@ -4,6 +4,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User =require('../models/user');
+
 //Register
 router.get('/register',function(req, res){
   res.render('register');
@@ -44,9 +45,6 @@ router.post('/register',function(req, res){
       password:password
     });
     User.creatUser(newUser,function(err,user){
-
-
-
       if(err)throw err;
       console.log(user);
     });
@@ -65,7 +63,7 @@ passport.use(new LocalStrategy(
         return done (null,false,{message: 'Unknown User'});
       }
 
-      User.comparePassword(password,user.password,function(err,isMatch){
+      User.comparePassword(password, user.password,function(err, isMatch){
         if(err)throw err;
         if(isMatch){
           return done (null,user);
@@ -73,6 +71,7 @@ passport.use(new LocalStrategy(
           return done (null,false,{message: 'Invalid password'});
         }
       });
+
     });
   }));
 
@@ -87,7 +86,7 @@ passport.use(new LocalStrategy(
   });
 
   router.post('/login',
-  passport.authenticate('local',{successRedirect:'/',failureRedirect:'/users/login',failureFlash:true}),
+  passport.authenticate('local', {successRedirect:'/',failureRedirect:'/users/login',failureFlash:true}),
   function(req, res) {
     res.redirect('/');
   });
@@ -95,7 +94,7 @@ passport.use(new LocalStrategy(
   router.get('/logout',function(req,res,next){
     req.logout();
 
-    req.flash('success_mgs','you are logged out');
+    req.flash('success_msg','you are logged out');
 
     req.redirect('/users/login');
   });
