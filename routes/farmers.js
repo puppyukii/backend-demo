@@ -65,7 +65,7 @@ router.post('/newFarmer', (req, res)=>{
       if(err) throw err;
       if(farmer){
         req.flash('error_msg', 'Some already joined using this mail address.');
-        res.redirect('/farmer/register');
+        res.redirect('/farmers/newFarmer');
       }
       else {
         var newFarmer = new Farmer();

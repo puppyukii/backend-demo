@@ -11,7 +11,7 @@ function ensureAuthenticated(req,res,next){
     return next();
   } else {
     req.flash('error_mgs','you are not logged in');
-    res.redirect('/users/login')
+    res.redirect('/farmers/loginFarmer')
 
   }
 }

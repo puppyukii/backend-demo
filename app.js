@@ -12,7 +12,7 @@ var localStrategy = require('passport-local').Strategy;
 var MongoClient = require('mongodb').MongoClient;
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/loginapp');
+mongoose.connect('mongodb://localhost:27017/angaadi');
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
