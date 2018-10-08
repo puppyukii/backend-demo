@@ -31,6 +31,10 @@ module.exports.AddFarmer = function(newFarmer,callback){
   });
 }
 
+module.exports.getFarmerById = (id, callback)=>{
+  Farmer.findById(id, callback);
+}
+
 module.exports.getFarmerbyMail = (mail, callback)=>{
   var query = { 'mail' : mail};
   Farmer.findOne(query, callback);

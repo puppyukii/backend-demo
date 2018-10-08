@@ -7,13 +7,25 @@ var VegeSchema = mongoose.Schema({
     type:String,
     index:true
   },
-  weight:{
-    type:String
-  },
-  price:{
-    type:String
-  }
+  Seller : [{
 
+    id      : {
+      type  : String
+    },
+    name    : {
+      type  : String
+    },
+    address : {
+      type  : String
+    },
+    instock : {
+      type  : Boolean
+    },
+    deliverable : {
+      type : Boolean
+    }
+  }
+]
 });
 
 var Vege = module.exports = mongoose.model('Vege', VegeSchema);

@@ -1,4 +1,3 @@
-
 var express = require('express');
 var router = express.Router();
 
@@ -9,7 +8,7 @@ var Vege =require('../models/vegetable');
 var Farmer =require('../models/farmer');
 
 router.get('/', (req, res)=>{
-  res.render('farmer');
+  res.render('farmer', {user : req.farmer});
 });
 
 router.post('/addVeg', (req, res)=>{
@@ -91,6 +90,17 @@ router.get('/loginFarmer', (req, res)=>{
   res.render('farmerLogin');
 });
 
+
+passport.serializeUser(function(farmer, done) {
+  done(null, farmer.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  Farmer.getFarmerById(id, function(err, farmer) {
+    done(err, farmer);
+  });
+});
+
 passport.use(new LocalStrategy(
   (mail, password, done)=>{
     Farmer.getFarmerbyMail(mail, (err, farmer)=>{
@@ -101,7 +111,7 @@ passport.use(new LocalStrategy(
       Farmer.comparePassword(password, farmer.password, (err, isMatch)=>{
         if(err) throw err;
         if(isMatch){
-          return done(null, farmer)
+          return done(null, farmer);
         }
         else {
           return done(null, false, {message : 'Wrong Password'});

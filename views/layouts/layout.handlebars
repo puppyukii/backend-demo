@@ -1,53 +1,139 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Angaadi</title>
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/style.css">
-  </head>
-  <body>
+<html lang="zxx">
+
+<head>
+  <title>Angaadi</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="angadi Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+  Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+  <script>
+  addEventListener("load", function () {
+    setTimeout(hideURLbar, 0);
+  }, false);
+
+  function hideURLbar() {
+    window.scrollTo(0, 1);
+  }
+  </script>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+  <link href="css/font-awesome.css" rel="stylesheet">
+  <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
+  <link rel="stylesheet" href="css/lightbox.css">
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="header-outs">
+    <div class="w3-agile-logo">
+      <a href="index.html"><img style="display:block; width:25%; margin-left:auto; margin-right:auto;" src="/images/angaadilogo.png" ></a>
+      <br>
+    </div>
+    <div class="top-nav">
+      <nav class="navbar navbar-default ">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/" >Home</a></li>
+            <li><a href="/menu" >Menu</a></li>
+            <li><a href="/about" >About us </a></li>
+            <li><a href="/gallery" >Gallery</a></li>
+            <li><a href="/contact" >Contact</a></li>
+            <li><a href="/farmers/newFarmer">Join Angaadi</a></li>
+
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+
+  {{{body}}}
+
+  <footer style="margin-bottom:0px;">
     <div class="container">
-      <img src="/images/logo.png" alt="Logo" style="width:50%; display:block; margin:2% auto 0 auto;">
-     <div class="header clearfix">
-       <nav>
-         <ul class="nav nav-justified">
-           {{#if user}}
-           <li role="presentation"><a href="/">Dashboard</a></li>
-           <li role="presentation"><a href="/users/logout">logout</a></li>
-           {{else}}
-           <li role="presentation"><a href="/farmers/loginFarmer">Login</a></li>
-           <li role="presentation"><a href="/farmers/newFarmer">Join Angaadi</a></li>
-           {{/if}}
-         </ul>
-       </nav>
-     </div>
+      <div class="col-md-7 col-sm-8 header-side">
+        <p>© 2018 Angaadi.</p>
+      </div>
+      <div class="col-md-5 col-sm-4 header-side">
+        <div class="buttom-social-grids">
+
+          <ul>
+            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+            <li><a href="#"><span class="fa fa-google"></span></a></li>
+            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
 
 
-     <div class="row">
-       <div class="col-lg-12">
-         {{#if success_msg}}
-           <div class="alert alert-success">{{success_msg}}</div>
-         {{/if}}
+  </footer>
+  <script src='js/jquery-2.2.3.min.js'></script>
 
-         {{#if error_msg}}
-            <div class="alert alert-danger">{{error_msg}}</div>
-         {{/if}}
+  <script src="js/lightbox-plus-jquery.min.js"></script>
+  <script src="js/responsiveslides.min.js"></script>
 
-         {{#if error}}
-           <div class="alert alert-danger">{{error}}</div>
-         {{/if}}
-        {{{body}}}
-       </div>
+  <script>
+    $(function () {
+      $("#slider4").responsiveSlides({
+        auto: true,
+        pager: true,
+        nav: false,
+        speed: 900,
+        namespace: "callbacks",
+        before: function () {
+          $('.events').append("<li>before event fired.</li>");
+        },
+        after: function () {
+          $('.events').append("<li>after event fired.</li>");
+        }
+      });
 
+    });
+  </script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.countup.js"></script>
+  <script>
+    $('.counter').countUp();
+  </script>
+  <script src="js/move-top.js"></script>
+  <script src="js/easing.js"></script>
+  <script>
+    jQuery(document).ready(function ($) {
+      $(".scroll").click(function (event) {
+        event.preventDefault();
+        $('html,body').animate({
+          scrollTop: $(this.hash).offset().top
+        }, 1000);
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $().UItoTop({
+        easingType: 'easeOutQuart'
+      });
+    });
+  </script>
+  <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
-     </div>
+  <script src="js/bootstrap.js"></script>
+</body>
 
-     <footer class="footer">
-       <p>&copy; 2018 Angaadi, Inc.</p>
-     </footer>
-
-   </div> <!-- /container -->
-   <script src="/js/script.js" charset="utf-8"></script>
-  </body>
 </html>

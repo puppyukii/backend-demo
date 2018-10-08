@@ -2,8 +2,28 @@ var express = require('express');
 var router = express.Router();
 
 //Get Homepage
-router.get('/', ensureAuthenticated, function(req,res){
+router.get('/', function(req,res){
   res.render('index');
+});
+
+router.get('/menu', function(req,res){
+  res.render('menu');
+});
+
+router.get('/about', function(req,res){
+  res.render('about');
+});
+
+router.get('/contact', function(req,res){
+  res.render('contact');
+});
+
+router.get('/gallery', function(req,res){
+  res.render('gallery');
+});
+
+router.get('/admin', function(req,res){
+  res.render('admin');
 });
 
 function ensureAuthenticated(req,res,next){
